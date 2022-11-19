@@ -29,6 +29,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class UcmChangeLogSetTest {
         activityFile.setEvent("file-event");
         activity.addFile(activityFile);
 
-        File tempLogFile = File.createTempFile("clearcase", "xml");
+        File tempLogFile = Files.createTempFile("clearcase", "xml").toFile();
         tempLogFile.deleteOnExit();
         FileOutputStream fileOutputStream = new FileOutputStream(tempLogFile);
 

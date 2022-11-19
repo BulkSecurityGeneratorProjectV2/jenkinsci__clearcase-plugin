@@ -30,6 +30,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -62,7 +63,7 @@ public class ClearCaseChangeLogSetTest {
         List<ClearCaseChangeLogEntry> history = new ArrayList<ClearCaseChangeLogEntry>();
         history.add(entry);
 
-        File tempLogFile = File.createTempFile("clearcase", "xml");
+        File tempLogFile = Files.createTempFile("clearcase", "xml").toFile();
         tempLogFile.deleteOnExit();
         FileOutputStream fileOutputStream = new FileOutputStream(tempLogFile);
 
@@ -128,7 +129,7 @@ public class ClearCaseChangeLogSetTest {
         List<ClearCaseChangeLogEntry> history = new ArrayList<ClearCaseChangeLogEntry>();
         history.add(entry);
 
-        File tempLogFile = File.createTempFile("clearcase", "xml");
+        File tempLogFile = Files.createTempFile("clearcase", "xml").toFile();
         tempLogFile.deleteOnExit();
         FileOutputStream fileOutputStream = new FileOutputStream(tempLogFile);
 

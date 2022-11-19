@@ -45,6 +45,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.Reader;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.EnumSet;
@@ -160,7 +161,7 @@ public abstract class ClearToolExec implements ClearTool {
         // Output to a temporary file since the output can become quite large
         File tmpFile = null;
         try {
-            tmpFile = File.createTempFile("cleartool-diffbl", null);
+            tmpFile = Files.createTempFile("cleartool-diffbl", null).toFile();
         } catch (IOException e) {
             throw new IOException("Couldn't create a temporary file", e);
         }

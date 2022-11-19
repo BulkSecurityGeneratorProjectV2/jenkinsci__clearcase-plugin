@@ -38,6 +38,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.nio.file.Files;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -127,7 +128,7 @@ public class HudsonClearToolLauncher implements ClearToolLauncher {
             if (logCommand) {
                 logger = listener.getLogger();
             } else {
-                logFile = File.createTempFile("cleartool", "log");
+                logFile = Files.createTempFile("cleartool", "log").toFile();
                 fileLogger = logger = new PrintStream(logFile);
             }
             if (out == null) {
